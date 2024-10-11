@@ -82,8 +82,8 @@ You can also refer to the S3 Mini Pro pinout diagram (link to be added if applic
 
 Example Projects Here are some basic starter projects for the S3 Mini Pro ESP32:
 
-- Blink (Built-in LED) A simple program that blinks the built-in RGB LED.
 - BlinkRGB Cycle through Red, Green, and Blue colors on the built-in RGB LED.
+- Blink (3mm LED) A simple program that blinks an LED.
 - Draw a Circle (TFT Display) A basic graphics program that draws a circle on a 128x128 TFT display.
 - Falling Pumpkins Game A Halloween-themed game where players catch pumpkins falling down the TFT display using buttons.
 

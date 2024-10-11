@@ -1,1 +1,12 @@
+To display a 128 x 128 pixel bitmap on your TFT display, you'll first need to ensure that the bitmap data is correctly formatted as a byte array in your code. Below, I’ll provide an example of how to do this using the Adafruit GFX library along with the Adafruit ST7735 library.
 
+Steps:
+Prepare Your Bitmap Data: Make sure your bitmap data is in the correct format as a byte array.
+Use drawBitmap() Function: Utilize the drawBitmap() function to display the bitmap on your TFT screen.
+
+## Instructions:
+Bitmap Data: Replace the placeholder byte data in myBitmap with your actual bitmap byte array. Make sure the size is 128 * 128 / 8 bytes (1632 bytes total).
+Position: The (0, 0) in drawBitmap(0, 0, myBitmap, 128, 128, ST77XX_WHITE) specifies the upper-left corner where the bitmap will be drawn. Adjust these coordinates if you want to position it differently.
+Color: The last argument in the drawBitmap function specifies the color for the bitmap (in this case, white). Adjust this as necessary based on your desired output.
+## Important Note:
+If your bitmap is a color bitmap (not monochrome), you might need to convert it to a format compatible with your display, such as RGB565, since the above example assumes a monochrome bitmap.

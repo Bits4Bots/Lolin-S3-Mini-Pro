@@ -64,17 +64,18 @@ Required Libraries You may need to install additional libraries to enable certai
 
 ## Pin Configuration
 Here is a basic pinout for the S3 Mini Pro ESP32:
+![image](https://github.com/user-attachments/assets/b619cee9-8e14-4088-97e5-99edb10694a4)
 
 ## Function Pin 
-WS2812B-0807 7 (Power)
-RGB LED - 8  (DI)
-Button 1 (Left) 0 
-Button 2 (Center) 47 
-Button 3 (Right) 48 
-TFT Display CS 35 
-TFT Display RST 34 
-TFT Display DC 36 
-TFT Display BL 33 
+- WS2812B-0807 7 (Power)
+- RGB LED - 8  (DI)
+- Button 1 (Left) 0 
+- Button 2 (Center) 47 
+- Button 3 (Right) 48 
+- TFT Display CS 35 
+- TFT Display RST 34 
+- TFT Display DC 36 
+- TFT Display BL 33 
 
 You can also refer to the S3 Mini Pro pinout diagram (link to be added if applicable) for further details on GPIO usage.
 

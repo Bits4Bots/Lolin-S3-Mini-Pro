@@ -63,7 +63,18 @@ Step 4: Upload a Test Sketch Open the "Blink" example by navigating to File > Ex
 ## Pin Configuration
 Here is a basic pinout for the S3 Mini Pro ESP32:
 
-Function Pin RGB LED - Red 37 RGB LED - Green 48 RGB LED - Blue 47 Button 1 (Left) 0 Button 2 (Center) 47 Button 3 (Right) 48 TFT Display CS 35 TFT Display RST 34 TFT Display DC 36 TFT Display BL 33 You can also refer to the S3 Mini Pro pinout diagram (link to be added if applicable) for further details on GPIO usage.
+## Function Pin 
+WS2812B-0807 7 (Power)
+RGB LED - 8  (DI)
+Button 1 (Left) 0 
+Button 2 (Center) 47 
+Button 3 (Right) 48 
+TFT Display CS 35 
+TFT Display RST 34 
+TFT Display DC 36 
+TFT Display BL 33 
+
+You can also refer to the S3 Mini Pro pinout diagram (link to be added if applicable) for further details on GPIO usage.
 
 Example Projects Here are some basic starter projects for the S3 Mini Pro ESP32:
 

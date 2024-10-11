@@ -1,7 +1,7 @@
 # S3 Mini Pro ESP32 - Arduino IDE Setup
 This repository provides an introduction to using the S3 Mini Pro ESP32 microcontroller with the Arduino IDE. The S3 Mini Pro is a powerful board that features Wi-Fi, Bluetooth, built-in RGB LEDs, buttons, and advanced peripherals for IoT, gaming, and other embedded applications.
 
-#Table of Contents
+# Table of Contents
 - Introduction
 - Hardware Requirements
 - Software Requirements
@@ -23,6 +23,25 @@ Key features:
 - Hardware Requirements To follow along with this guide, you'll need the following hardware:
 - S3 Mini Pro ESP32 board USB-C to USB-A cable (for powering and programming the board) Optional peripherals (e.g., TFT 
   display, sensors, LEDs, buttons)
+
+# Technical Details
+- Based ESP32-S3FH4R2
+- 2.4 GHz Wi-Fi
+- Bluetooth LE
+- 4MB Flash
+- 2MB PSRAM
+- 0.85” 128x128 LCD TFT display (GC9107/GC9A01)
+- 6D MEMS IMU (QMI8658C)
+- 12x IO
+- 3x Button (IO0, IO47, IO48)
+- 1x RGB LED (Data: IO8, Power: IO7)
+- 1x IR (IO9)
+- ADC, DAC, I2C, SPI, UART, USB OTG
+- Size:  34.3mm*25.4mm
+- Compatible with MicroPython, Arduino
+- Default firmware: MicroPython
+- Compatible with LOLIN D1 mini shields
+More: https://www.wemos.cc/en/latest/s3/s3_mini_pro.html
 
 ## Software Requirements
 Ensure you have the following software installed:

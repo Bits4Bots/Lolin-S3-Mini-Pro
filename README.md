@@ -21,7 +21,8 @@ Key features:
 - 128x128 TFT display support
 - High-speed SPI, I2C, UART, and more
 - Hardware Requirements To follow along with this guide, you'll need the following hardware:
-- S3 Mini Pro ESP32 board USB-C to USB-A cable (for powering and programming the board) Optional peripherals (e.g., TFT 
+- S3 Mini Pro ESP32 board USB-C to USB-A cable (for powering and programming the board)
+- Optional peripherals (e.g., TFT 
   display, sensors, LEDs, buttons)
 
 ## Technical Details

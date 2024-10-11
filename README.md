@@ -92,6 +92,6 @@ Example Projects Here are some basic starter projects for the S3 Mini Pro ESP32:
 ## Contributing
 If you want to contribute to this repository, feel free to open a pull request or submit issues to improve the documentation and examples.
 
-## License This project is licensed under the MIT License - see the LICENSE file for details.
+## This project is licensed under the MIT License - see the LICENSE file for details.
 
 By following this guide, you should be up and running with the S3 Mini Pro ESP32 in the Arduino IDE and ready to explore the world of IoT, gaming, and other embedded systems projects!

@@ -60,7 +60,9 @@ Required Libraries You may need to install additional libraries to enable certai
 - Step 1: Connect your S3 Mini Pro ESP32 to your computer using a USB-C cable. The board should power up, but there will not be any indication of a successful connection.
 - Step 2: Select the ESP32 Board (Lolin S3 Mini Pro) In the Arduino IDE, go to Tools > Board > ESP32 Arduino. Select ESP32S3 Dev Module from the list.
 - Step 3: Select the COM Port Go to Tools > Port, and select the port corresponding to your connected ESP32 S3 Mini Pro.
-- Step 4: Upload a Test Sketch Open the "Blink" example by navigating to File > Examples > 01.Basics > Blink. Modify the LED_BUILTIN pin to match the LED pin out (e.g., GPIO37). Compile and upload the sketch. If successful, the onboard LED will blink.
+- Step 4: Upload a Test Sketch Open the "Blink" example by navigating to File > Examples > 01.Basics > Blink. Modify the LED_BUILTIN pin to match the LED pin out (e.g., GPIO37). Compile and upload the sketch. If successful, the LED will blink.
+- ![Blue led](https://github.com/user-attachments/assets/515246f6-8224-47c0-9cd5-1eb6f4c1c656)
+
 
 ## Pin Configuration
 Here is a basic pinout for the S3 Mini Pro ESP32:

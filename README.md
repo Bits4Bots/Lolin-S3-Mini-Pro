@@ -50,6 +50,7 @@ Ensure you have the following software installed:
 Arduino IDE Download from Arduino's official website. Follow the instructions to install the IDE on your computer.
 ESP32 Board Support In the Arduino IDE, go to File > Preferences. In the "Additional Boards Manager URLs" field, enter: https://dl.espressif.com/dl/package_esp32_index.json Then, go to Tools > Board > Boards Manager and search for "ESP32." Install the latest version.
 Required Libraries You may need to install additional libraries to enable certain functionalities (e.g., TFT display support). Libraries can be installed via Sketch > Include Library > Manage Libraries in the Arduino IDE.
+
 ## Recommended libraries:
 - Adafruit GFX (for graphical displays)
 - Adafruit ST7735 and ST7789 (for TFT screens)
@@ -60,6 +61,7 @@ Step 1: Connect Your Board Connect the S3 Mini Pro ESP32 to your computer using 
 Step 2: Select the ESP32 Board (Lolin S3 Mini Pro) In the Arduino IDE, go to Tools > Board > ESP32 Arduino. Select ESP32S3 Dev Module from the list.
 Step 3: Select the COM Port Go to Tools > Port, and select the port corresponding to your connected ESP32 S3 Mini Pro.
 Step 4: Upload a Test Sketch Open the "Blink" example by navigating to File > Examples > 01.Basics > Blink. Modify the LED_BUILTIN pin to match the onboard RGB LED pin (e.g., GPIO37 for red, GPIO47 for blue, GPIO48 for green). Compile and upload the sketch. If successful, the onboard LED will blink.
+
 ## Pin Configuration
 Here is a basic pinout for the S3 Mini Pro ESP32:
 

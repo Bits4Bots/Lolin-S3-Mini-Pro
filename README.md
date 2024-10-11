@@ -1,7 +1,7 @@
 # S3 Mini Pro ESP32 - Arduino IDE Setup
 This repository provides an introduction to using the S3 Mini Pro ESP32 microcontroller with the Arduino IDE. The S3 Mini Pro is a powerful board that features Wi-Fi, Bluetooth, built-in RGB LEDs, buttons, and advanced peripherals for IoT, gaming, and other embedded applications.
 
-# Table of Contents
+## Table of Contents
 - Introduction
 - Hardware Requirements
 - Software Requirements
@@ -24,7 +24,7 @@ Key features:
 - S3 Mini Pro ESP32 board USB-C to USB-A cable (for powering and programming the board) Optional peripherals (e.g., TFT 
   display, sensors, LEDs, buttons)
 
-# Technical Details
+## Technical Details
 - Based ESP32-S3FH4R2
 - 2.4 GHz Wi-Fi
 - Bluetooth LE

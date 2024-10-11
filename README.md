@@ -64,7 +64,8 @@ Required Libraries You may need to install additional libraries to enable certai
 
 ## Pin Configuration
 Here is a basic pinout for the S3 Mini Pro ESP32:
-![image](https://github.com/user-attachments/assets/b619cee9-8e14-4088-97e5-99edb10694a4)
+![image](https://github.com/user-attachments/assets/f8c4bb76-5f99-445e-a696-7a6a50aab946)
+
 
 ## Function Pin 
 - WS2812B-0807 7 (Power)

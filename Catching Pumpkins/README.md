@@ -27,7 +27,7 @@ This project introduces the following concepts:
 - Hardware Requirements
 - To build this project, you'll need the following hardware components:
 
-### ESP32 S3 Mini Pro:
+## ESP32 S3 Mini Pro:
 
 Microcontroller (S3 Mini Pro) that supports Wi-Fi and Bluetooth and provides built-in RGB LEDs and buttons.
 TFT 0.85" Display (128x128):
@@ -96,7 +96,7 @@ Objective: Catch the falling pumpkins using the buttons.
 Pumpkins fall down from one of the three columns.
 Press the corresponding button (left, center, or right) to catch the pumpkin.
 Each successful catch increases your score.
-### Game Over: The game ends if you miss catching a pumpkin.
+## Game Over: The game ends if you miss catching a pumpkin.
 Pre-game Pumpkin Image: After the title screen, a large pumpkin image is displayed to set the Halloween mood.
 
 Feel free to contribute, suggest features, or ask questions! 🎮 Happy coding and Happy Halloween! 🎃

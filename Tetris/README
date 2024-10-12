@@ -1,4 +1,4 @@
-# Overview of Tetris Game Code
+Overview of Tetris Game Code
 A simple Tetris game involves several key components:
 
 - Game Board: A grid representing the play area.
@@ -9,7 +9,7 @@ A simple Tetris game involves several key components:
 - Clearing Lines: To remove filled lines and update the score.
 - Game Over Condition: To check if the game is over.
 
-## Explanation of Key Sections
+Explanation of Key Sections
 Library Imports: The code includes libraries for graphics handling (Adafruit_GFX and Adafruit_ST7735).
 
 Game Board Initialization:

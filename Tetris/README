@@ -38,5 +38,6 @@ Rotation of Tetrominoes: Implement logic to allow Tetrominoes to rotate.
 User Input Handling: Capture button presses to move or rotate Tetrominoes.
 Scoring System: Implement a display for the current score and possibly a high score.
 Game Over Screen: Display a message or restart option when the game ends.
-Conclusion
+Summary
 This Tetris implementation on the S3 Mini Pro ESP32 is a great starting point for understanding game programming concepts such as game loops, collision detection, and rendering graphics. You can expand this code by adding more features and refining the gameplay. If you have specific questions or want to delve deeper into any section, feel free to ask!
+- Bits4Bots

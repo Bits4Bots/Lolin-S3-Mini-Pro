@@ -90,6 +90,7 @@ Example Projects Here are some basic starter projects for the S3 Mini Pro ESP32:
 - Falling Pumpkins Game A Halloween-themed game where players catch pumpkins falling down the TFT display using buttons.
 - with more games to come!
   ![image](https://github.com/user-attachments/assets/1d47fc10-3135-4b4f-a1fb-58269c58eab1)
+![image](https://github.com/user-attachments/assets/4f43e8de-d334-458e-b55f-4ffcb32c81fe)
 
 
 ## Contributing

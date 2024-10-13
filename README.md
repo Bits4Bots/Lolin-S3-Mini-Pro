@@ -88,6 +88,9 @@ Example Projects Here are some basic starter projects for the S3 Mini Pro ESP32:
 - Blink (3mm LED) A simple program that blinks an LED.
 - Draw a Circle (TFT Display) A basic graphics program that draws a circle on a 128x128 TFT display.
 - Falling Pumpkins Game A Halloween-themed game where players catch pumpkins falling down the TFT display using buttons.
+- with more games to come!
+  ![image](https://github.com/user-attachments/assets/1d47fc10-3135-4b4f-a1fb-58269c58eab1)
+
 
 ## Contributing
 If you want to contribute to this repository, feel free to open a pull request or submit issues to improve the documentation and examples.

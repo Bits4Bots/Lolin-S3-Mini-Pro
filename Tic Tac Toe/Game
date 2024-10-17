@@ -1,0 +1,199 @@
+#include <Adafruit_GFX.h>
+#include <Adafruit_ST7735.h>
+#include <SPI.h>
+
+// Pin definitions for the display
+#define TFT_CS     35
+#define TFT_RST    34
+#define TFT_DC     36
+#define TFT_BL     33
+
+// Button pins
+#define BUTTON_LEFT  0
+#define BUTTON_RIGHT 48
+#define BUTTON_SELECT 47
+
+// Board dimensions
+#define BOARD_SIZE 3
+#define CELL_SIZE 40
+
+// Game states
+char board[BOARD_SIZE][BOARD_SIZE] = {{' ', ' ', ' '}, {' ', ' ', ' '}, {' ', ' ', ' '}};
+int currentPlayer = 1;  // Player 1 (X) starts the game
+int cursorIndex = 0;    // Index for linear cursor movement (0 to 8)
+bool gameActive = true;
+int lastCursorIndex = 0;  // Track last cursor position to prevent unnecessary redraws
+
+Adafruit_ST7735 tft = Adafruit_ST7735(TFT_CS, TFT_DC, TFT_RST);
+
+// Function prototypes
+void resetGame();
+void drawBoard(bool fullRedraw);
+void updateCell(int x, int y);
+void moveCursor(int direction);
+void selectCell();
+bool checkWin();
+bool checkDraw();
+void showGameOver(const char* message);
+
+void setup() {
+    pinMode(TFT_BL, OUTPUT);
+    digitalWrite(TFT_BL, HIGH);  // Turn on backlight
+    tft.initR(INITR_BLACKTAB);
+    tft.setRotation(2);
+
+    pinMode(BUTTON_LEFT, INPUT_PULLUP);
+    pinMode(BUTTON_RIGHT, INPUT_PULLUP);
+    pinMode(BUTTON_SELECT, INPUT_PULLUP);
+
+    tft.fillScreen(ST7735_BLACK);
+    resetGame();
+}
+
+void loop() {
+    if (!gameActive) return;
+
+    // Check button states
+    if (digitalRead(BUTTON_LEFT) == LOW) {
+        moveCursor(-1);  // Move left
+        delay(200);
+    } else if (digitalRead(BUTTON_RIGHT) == LOW) {
+        moveCursor(1);   // Move right
+        delay(200);
+    } else if (digitalRead(BUTTON_SELECT) == LOW) {
+        selectCell();  // Place mark
+        delay(200);
+    }
+
+    // Update the board without full redraw
+    drawBoard(false);
+}
+
+void resetGame() {
+    // Reset the game state
+    for (int i = 0; i < BOARD_SIZE; i++) {
+        for (int j = 0; j < BOARD_SIZE; j++) {
+            board[i][j] = ' ';
+        }
+    }
+    currentPlayer = 1;  // Player X starts
+    cursorIndex = 0;
+    lastCursorIndex = 0;
+    gameActive = true;
+    drawBoard(true);  // Full board redraw at the beginning
+}
+
+void drawBoard(bool fullRedraw) {
+    // Draw the Tic Tac Toe grid and update cells
+    if (fullRedraw) {
+        tft.fillScreen(ST7735_BLACK);
+        for (int i = 1; i < BOARD_SIZE; i++) {
+            tft.drawLine(i * CELL_SIZE, 0, i * CELL_SIZE, BOARD_SIZE * CELL_SIZE, ST7735_WHITE);  // Vertical lines
+            tft.drawLine(0, i * CELL_SIZE, BOARD_SIZE * CELL_SIZE, i * CELL_SIZE, ST7735_WHITE);  // Horizontal lines
+        }
+        // Update all cells
+        for (int y = 0; y < BOARD_SIZE; y++) {
+            for (int x = 0; x < BOARD_SIZE; x++) {
+                updateCell(x, y);
+            }
+        }
+    } else {
+        // Only update the cursor and the previous cursor position
+        int lastX = lastCursorIndex % BOARD_SIZE;
+        int lastY = lastCursorIndex / BOARD_SIZE;
+        updateCell(lastX, lastY);  // Redraw the last cursor position
+
+        int currentX = cursorIndex % BOARD_SIZE;
+        int currentY = cursorIndex / BOARD_SIZE;
+        updateCell(currentX, currentY);  // Draw the new cursor position
+    }
+
+    // Remember the last cursor position
+    lastCursorIndex = cursorIndex;
+}
+
+void updateCell(int x, int y) {
+    // Clear the cell area
+    int xPos = x * CELL_SIZE;
+    int yPos = y * CELL_SIZE;
+
+    // Draw the content of the cell (X, O, or empty)
+    if (board[x][y] == 'X') {
+        tft.setCursor(xPos + 10, yPos + 10);
+        tft.setTextColor(ST7735_RED);
+        tft.setTextSize(2);
+        tft.print("X");
+    } else if (board[x][y] == 'O') {
+        tft.setCursor(xPos + 10, yPos + 10);
+        tft.setTextColor(ST7735_BLUE);
+        tft.setTextSize(2);
+        tft.print("O");
+    } else {
+        tft.fillRect(xPos + 1, yPos + 1, CELL_SIZE - 2, CELL_SIZE - 2, ST7735_BLACK);  // Clear cell background
+    }
+
+    // Highlight the current cursor position
+    if (x == cursorIndex % BOARD_SIZE && y == cursorIndex / BOARD_SIZE) {
+        tft.drawRect(xPos, yPos, CELL_SIZE, CELL_SIZE, ST7735_GREEN);
+    }
+}
+
+void moveCursor(int direction) {
+    // Update cursor index based on direction (-1 for left, +1 for right)
+    cursorIndex = (cursorIndex + direction + BOARD_SIZE * BOARD_SIZE) % (BOARD_SIZE * BOARD_SIZE);
+}
+
+void selectCell() {
+    int x = cursorIndex % BOARD_SIZE;
+    int y = cursorIndex / BOARD_SIZE;
+
+    if (board[x][y] == ' ') {  // Check if the cell is empty
+        board[x][y] = (currentPlayer == 1) ? 'X' : 'O';
+
+        // Check if the current player wins
+        if (checkWin()) {
+            showGameOver(currentPlayer == 1 ? "Player X Wins!" : "Player O Wins!");
+            gameActive = false;
+        }
+        // Check for a draw
+        else if (checkDraw()) {
+            showGameOver("Draw!");
+            gameActive = false;
+        } else {
+            // Switch player
+            currentPlayer = (currentPlayer == 1) ? 2 : 1;
+        }
+    }
+}
+
+bool checkWin() {
+    // Check rows, columns, and diagonals for a win
+    for (int i = 0; i < BOARD_SIZE; i++) {
+        if (board[i][0] != ' ' && board[i][0] == board[i][1] && board[i][1] == board[i][2]) return true;
+        if (board[0][i] != ' ' && board[0][i] == board[1][i] && board[1][i] == board[2][i]) return true;
+    }
+    if (board[0][0] != ' ' && board[0][0] == board[1][1] && board[1][1] == board[2][2]) return true;
+    if (board[0][2] != ' ' && board[0][2] == board[1][1] && board[1][1] == board[2][0]) return true;
+    return false;
+}
+
+bool checkDraw() {
+    // If all cells are filled and no one has won, it's a draw
+    for (int y = 0; y < BOARD_SIZE; y++) {
+        for (int x = 0; x < BOARD_SIZE; x++) {
+            if (board[x][y] == ' ') return false;
+        }
+    }
+    return true;
+}
+
+void showGameOver(const char* message) {
+    tft.fillScreen(ST7735_BLACK);
+    tft.setCursor(20, 40);
+    tft.setTextColor(ST7735_WHITE);
+    tft.setTextSize(2);
+    tft.print(message);
+
+    delay(3000);  // Wait for a while before resetting the game
+    resetGame();
+}

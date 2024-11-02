@@ -1,3 +1,9 @@
+Pins
+// TFT screen pin definitions
+#define TFT_CS   35
+#define TFT_RST  34
+#define TFT_DC   36
+#define TFT_BL   33
 To display a 128 x 128 pixel bitmap on your TFT display, you'll first need to ensure that the bitmap data is correctly formatted as a byte array in your code. Below, I’ll provide an example of how to do this using the Adafruit GFX library along with the Adafruit ST7735 library.
 
 Steps:
